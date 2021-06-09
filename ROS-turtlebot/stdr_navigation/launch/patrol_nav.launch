@@ -1,0 +1,27 @@
+<!--
+  Copyright: 2016-2018: www.corvin.cn
+  Author: corvin
+  Description:
+        启动move_base和amcl来进行自动导航,然后启动patrol_nav_node.
+  History:
+    20180806: initial this file.
+    20180807: add patrol_time and random_patrol parameters.
+-->
+<launch>
+  <!-- startup move_base node -->
+  <include file="$(find stdr_move_base)/launch/stdr_move_base.launch" />
+     
+  <!-- startup amcl node -->
+  <include file="$(find stdr_amcl)/launch/stdr_amcl.launch" />
+     
+  <!-- startup patrol navigation node -->
+  <node pkg="stdr_navigation" type="patrol_nav.py" name="patrol_nav_node" output="screen" >
+    <param name="rest_time"     value="2" />
+    <param name="keep_patrol"   value="false" />
+    <param name="random_patrol" value="false" />
+    <param name="patrol_type"   value="0" />
+    <param name="patrol_loop"   value="5" />
+    <param name="patrol_time"   value="3" />
+  </node>
+     
+</launch>

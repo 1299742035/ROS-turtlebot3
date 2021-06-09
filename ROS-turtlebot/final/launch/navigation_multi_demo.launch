@@ -1,0 +1,8 @@
+<launch>
+    <node pkg="final" type="navigation_multi_goals.py" respawn="false" name="navigation_multi_goals" output="screen">
+        <param name="goalListX" value="-1.4 0.45" />
+        <param name="goalListY" value="0.25 -1.25" />
+        <param name="goalListYaw" value="-1.2 -3.35" /><!--degree--> 
+    </node>
+</launch>
+
